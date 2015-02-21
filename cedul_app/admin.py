@@ -13,7 +13,7 @@ class EventTimeInline(admin.TabularInline):
 
 class EventAdmin(admin.ModelAdmin):
 	inlines = [AttendeeInline, EventTimeInline]
-	list_display = ('event_name', 'location', 'description')
+	list_display = ('event_name', 'id', 'location', 'description')
 
 # Register your models here.
 admin.site.register(Event, EventAdmin)
