@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            {% block title %}
+            {% endblock %}
+        </title>
+    </head>
+    
+    {% block styles %}{% endblock %}
+    
+    <body style="margin: 0">
+        <h1 id="header">
+            <a href="/">Cedul</a>
+        </h1>
+        {{ e.event_name }}
+        <br>
+        
+        Attendees
+        <br>
+        <ul>
+        {% for a in attendees %}
+            <li>{{ a.first_name }} {{ a.last_name }}</li>
+        {% endfor %}
+        </ul>
+    </body>
+</html>

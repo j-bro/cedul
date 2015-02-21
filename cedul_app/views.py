@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
 
 from cedul_app.models import Event
 
@@ -7,8 +8,12 @@ from cedul_app.models import Event
 
 # Main home page view
 def home(request):
-	return HttpResponse('Welcome to Cedul\'s home page')
+	context = None
+	return render(request, 'cedul_app/home.html', context)
 
+# event display page
 def event(request, event_key):
-	e = Event.objects.get(pk=event_key)
-	return HttpResponse('Page for event %s' % e.event_name)
+	e = get_object_or_404(Event, pk=event_key)
+	attendees = e.attendee_set.all()
+	context = {'event': e, 'attendees': attendees}
+	return render(request, 'cedul_app/event.html', context)
