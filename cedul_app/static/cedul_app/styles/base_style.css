@@ -1,0 +1,45 @@
+body {
+		background-color: #2FB9A1;
+}
+
+@font-face {
+    font-family: 'bold-font';
+    src: url('/static/cedul_app/fonts/Comfortaa-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'light-font';
+    src: url('/static/cedul_app/fonts/Comfortaa-Light.ttf');
+}
+
+.footer {
+	font-family: 'light-font';
+	color: #FFFFFF;
+	
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 70px;	
+}
+
+ul {
+	list-style-type: none;
+	padding-left: 20px;
+}
+
+.button {
+    background: #FFFFFF;
+    border: none;
+    border-color: #FFFFFF;
+    font-family: 'light-font', verdana;
+    border-radius: 15px;
+    color: #F69666;
+    text-align: center;
+}
+
+input, textarea {
+	color: #F69666;
+	font-family: 'light-font', verdana;
+	border: none;
+	outline: none;
+}

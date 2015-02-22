@@ -1,28 +1,25 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>
-            {% block title %}
-            Create an Event
-            {% endblock %}
-        </title>
-    </head>
-    
-    {% block styles %}{% endblock %}
-    
-    <body style="margin: 0">
-        <h1 id="header"><a href="/">Cedul</a><h1>
+{% extends "cedul_app/site_base.html" %}
 
-        <h3>
-        <br>
+{% block title %}Create Event - {% endblock %}
+
+{% block styles %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'cedul_app/styles/create_event_style.css' %}" media="screen" />
+{% endblock %}
+
+
+{% block content %}
+
+{% include "cedul_app/menubar.html" with page_title="Create Event" %}
+
+    <div class="create-event-form rounded">
         <form action="" method="post">
-            {% csrf_token %}
             <ul>
             {{ create_event_form.as_ul }}
             </ul>
-            <input type='submit' value='Create Event'>
+            {% csrf_token %}
+            <input class="button" id="submit-button" type="submit" value="Create Event">
         </form>
+    </div>
 
-        </ul>
-    </body>
-</html>
+{% endblock %}

@@ -1,0 +1,52 @@
+.create-event-form {
+	background-color: #FFFFFF;
+	border: 1px;
+	border-radius: 15px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 50px;
+	width: 500px;
+	padding: 5px;
+}
+
+label {
+	font-family: 'light-font';
+	font-size: 1.5em;
+	color: #F69666;
+}
+
+li {
+	padding-left: 30px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	vertical-align: middle;
+}
+
+input, textarea {
+	background-color: #E7EFEF;
+	border: 0;
+	border-radius: 5px;
+	padding: 10px;
+	margin-left: 10px;
+	font-size: 1em
+}
+
+#id_description {
+	margin-left: 0px;
+}
+
+#submit-button {
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 50px;
+	margin-bottom: 30px;
+
+	display: table;
+	height: 100;
+	font-size: 1.5em;
+}
+
+.errorlist {
+	font-family: 'light-font';
+	color: #5C6060;
+}

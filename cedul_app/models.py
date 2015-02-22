@@ -5,7 +5,7 @@ from django.db import models
 
 class Event(models.Model):
 	event_name = models.CharField(max_length=200, blank=False)
-	public_key = models.CharField(max_length=40)
+	public_key = models.CharField(max_length=40, unique=True)
 	location = models.CharField(max_length=200, blank=True)
 	description = models.TextField(blank=True)
 	recurring = models.BooleanField(default=False)

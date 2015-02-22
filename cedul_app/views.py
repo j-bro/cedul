@@ -15,10 +15,11 @@ def create_event(request):
 		### Do stuff here...
 		form = EventForm(request.POST)
 		if form.is_valid():
-			pass
-		public_key = None
-		return redirect('event', public_key=public_key)
-
+			# Valid form data, save to db
+			new_event = form.save()
+			public_key = new_event.public_key
+			return redirect('event', public_key=public_key)
+	# Invalid form, public_key or not
 	else:
 		public_key = request.GET.get('public_key')
 		if public_key:
@@ -26,11 +27,11 @@ def create_event(request):
 				# Return home if event key already exists
 				return redirect('home')
 			else:
-
 				form = EventForm(initial={'public_key': public_key})
 		else:
 			form = EventForm()
-		context = {'public_key': public_key, 'create_event_form': form}
+			## bug herrreee
+	context = {'create_event_form': form}
 	return render(request, 'cedul_app/create_event.html', context)
 
 # Event search redirect

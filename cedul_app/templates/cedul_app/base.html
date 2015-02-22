@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock %}Cedul</title>
+
+        {% load staticfiles %}
+        <link rel="stylesheet" type="text/css" href="{% static 'cedul_app/styles/base_style.css' %}" media="screen" />
+        {% block base_styles %}{% endblock %}
+        {% block styles %}{% endblock %}
+
+    </head>
+    
+    <body>
+
+        {% block menubar %}
+        {% endblock %}
+
+    	{% block content %}
+    	{% endblock %}
+
+    	{% include "cedul_app/footer.html" %}
+    </body>
+</html>

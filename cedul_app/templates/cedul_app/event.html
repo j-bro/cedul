@@ -1,31 +1,32 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>
-            {% block title %}
-            {{ event.event_name }}
-            {% endblock %}
-        </title>
-    </head>
-    
-    {% block styles %}{% endblock %}
-    
-    <body style="margin: 0">
-        <h1 id="header"><a href="/">Cedul</a><h1>
+{% extends "cedul_app/site_base.html" %}
 
-        <h2>{{ event.event_name }}</h2>
-        <br>
-        
+{% block title %}{{ event.event_name }} - {% endblock %}
+
+{% block styles %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'cedul_app/styles/create_event_style.css' %}" media="screen" />
+{% endblock %}
+
+{% block content %}
+
+{% include "cedul_app/menubar.html" with page_name="{{event.event_name}}" %}
+
+    <div class="page-title">
+        {{ event.event_name }}
+    </div>
+
+    <div class="event-table">
         Attendees
-        <ul>
-        {% for a in event.attendee_set.all %}
-            <li>{{ a.name }}</li>
                 <ul>
-                {% for dt in a.availableslot_set.all %}
-                    <li>{{ dt }}</li>
+                {% for a in event.attendee_set.all %}
+                    <li>{{ a.name }}</li>
+                        <ul>
+                        {% for dt in a.availableslot_set.all %}
+                            <li>{{ dt }}</li>
+                        {% endfor %}
+                        </ul>
                 {% endfor %}
                 </ul>
-        {% endfor %}
-        </ul>
-    </body>
-</html>
+    </div>
+
+{% endblock %}

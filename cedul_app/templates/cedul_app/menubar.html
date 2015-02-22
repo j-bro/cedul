@@ -1,0 +1,24 @@
+<style media="screen" type="text/css">
+
+	#menubar {
+		background-color: #269481;
+		border: 2px;
+		border-radius: 5px
+	}
+
+	#menubar-logo {
+		padding: 10px;
+	}
+
+</style>
+
+<div id='menubar'>
+	<a href="{% url 'home' %}">
+		{% load staticfiles %}
+		<img id="menubar-logo" src="{% static 'cedul_app/images/logo_75x75.png' %}" />
+	</a>
+
+	<div id="page-title">
+        {{ page_title }}
+    </div>
+</div>

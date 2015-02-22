@@ -1,0 +1,55 @@
+.logo {
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    margin-left: -100px;
+}
+
+.centeredtext {
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+    margin-top: 275px;
+    text-align: center;
+
+    font-family: 'bold-font', verdana;
+    font-size: 6em;
+    color: #F69666;
+}
+
+.find-event {
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+    margin-top: 75px;
+}
+
+.create-event {
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+    margin-top: 75px;
+}
+
+.key-input {
+    height: 50px;
+    width: 300px;
+    background: #FFFFFF;
+    border-color: #FFFFFF;
+    border-radius: 15px;
+    font-size: 1.5em;
+    text-align: center;
+    margin-right: 20px;
+}
+
+#find-event-button {
+    height: 50px;
+    width: 180px;
+    font-size: 1.5em;
+}
+
+#create-event-button {
+    height: 50px;
+    width: 180px;
+    font-size: 1.5em;
+}

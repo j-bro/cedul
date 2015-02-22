@@ -1,0 +1,12 @@
+#page-title {
+	margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #FFFFFF;
+    text-align: center;
+    margin-top: -100;
+
+
+    font-family: 'bold-font', verdana;
+    font-size: 3em;
+    color: #F69666;
+}

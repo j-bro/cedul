@@ -1,77 +1,30 @@
+{% extends "cedul_app/base.html" %}
 
-<!DOCTYPE html>
-<html>
-    <head>
+{% block title %}Create Event - {% endblock %}
 
-	<style type="text/css">
-        body {background-color: #2FB9A1;}
-        
-        .centered {
-            position: fixed;
-            top: 25px;
-            left: 50%;
-            margin-left: -100px;        }
+{% block styles %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'cedul_app/styles/home_style.css' %}" media="screen" />
+{% endblock %}
     
-    .centeredtext {
-        position: fixed;
-        top: 265px;
-        left: 50%;
-        margin-left: -70px;        }
+{% block content %}
+
+    <p class="logo"><img src="{% static 'cedul_app/images/logo_200x200.png' %}" alt="logo" height="200" width="200"></p>
+     
+    <div class="centeredtext">Cedul</div>
     
-        .button {
-            display: block;
-            height: 50px;
-            width: 90px;
-            background: #FFFFFF;
-            border: 2px;
-            border-radius: 25px;
-            border-color: #FFFFFF;
-            font-family: verdana;
-            font-size: 1em;
-            color: #F69666;
-            margin-left: 40%;
-            top: 350px;
-            position: absolute;
-            }
-    
-        .button2 {
-            margin-left: 50%;
-            position: absolute;
-            top: 350px;
-            display: block;
-            height: 50px;
-            width: 90px;
-            background: #FFFFFF;
-            border: 2px;
-            border-radius: 25px;
-            border-color: #FFFFFF;
-            font-family: verdana;
-            font-size: 1em;
-            color: #F69666;
+    <div class="find-event">
+        <form action="{% url 'event_redirect' %}" method='get'>
+        <input class="key-input" type="text" placeholder="Event Key" name="public_key"/>
+        <input class="button" id="find-event-button" type="submit" value="Find Event" />
+        </form>         
+    </div>
 
+    <div class="create-event">
+        <form action="{% url 'create_event' %}" method='get'>
+        <input class="key-input" type="text" placeholder="Desired Key" name="public_key"/>
+        <input class="button" id="create-event-button" type="submit" value="Create Event" />
+        </form>
+    </div>
 
-        }
-   
-    </style>
-        <title>
-
-        </title>
-    </head>
-    
-    <body>
-                 <p class="centered"><img src="logo_200by200.png" alt="logo" height="200" width="200"></p>
-                 
-                <font face="verdana" color=#F69666 size="8" class="centeredtext"> Cedul </font>
-                
-                 <a href="http://www.google.com/">
-                     <button class="button" >Input Key</button>
-                 </a>
-                 
-                 
-                 <a href="http://www.google.com/">
-                     <button class="button2" >Create Cedul</button>
-                 </a>
-
-
-    </body>
-</html>
+{% endblock %}
