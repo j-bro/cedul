@@ -13,12 +13,12 @@ class AvailableSlotInline(admin.TabularInline):
 
 class EventAdmin(admin.ModelAdmin):
 	inlines = [AttendeeInline]
-	list_display = ('event_name', 'id', 'location', 'description')
+	list_display = ('event_name', 'public_key', 'location', 'description')
 
 class AttendeeAdmin(admin.ModelAdmin):
 	inlines = [AvailableSlotInline]
+	list_display = ('name', 'email', 'event')
 
 # Register your models here.
 admin.site.register(Event, EventAdmin)
 admin.site.register(Attendee, AttendeeAdmin)
-admin.site.register(AvailableSlot)

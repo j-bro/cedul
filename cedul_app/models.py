@@ -37,4 +37,4 @@ class AvailableSlot(models.Model):
 	is_maybe = models.BooleanField(default=False)
 
 	def __str__(self):
-		return str(self.start_time) + ' to ' + str(self.aend_time)
+		return str(self.start_time) + ' to ' + str(self.end_time)

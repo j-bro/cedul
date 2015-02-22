@@ -1,8 +1,7 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from cedul_app.models import Event
+from cedul_app.forms import EventForm
 
 
 # Main home page view
@@ -12,8 +11,21 @@ def home(request):
 
 # Create an event page
 def create_event(request):
-	public_key = request.GET.get('public_key')
-	context = {'public_key': public_key}
+	if request.method == 'POST':
+		### Do stuff here...
+		form = EventForm(request.POST)
+		if form.is_valid():
+			pass
+		public_key = None
+		return redirect('event', public_key=public_key)
+		pass
+	else:
+		public_key = request.GET.get('public_key')
+		if public_key:
+			form = EventForm(initial={'public_key': public_key})
+		else:
+			form = EventForm()
+		context = {'public_key': public_key, 'create_event_form': form}
 	return render(request, 'cedul_app/create_event.html', context)
 
 # Event search redirect

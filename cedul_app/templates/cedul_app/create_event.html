@@ -14,10 +14,14 @@
         <h1 id="header"><a href="/">Cedul</a><h1>
 
         <h3>
-        Public key: {{ public_key }}
         <br>
-        [ CREATE EVENT FORM GOES HERE ]
-
+        <form action="" method="post">
+            {% csrf_token %}
+            <ul>
+            {{ create_event_form.as_ul }}
+            </ul>
+            <input type='submit' value='Create Event'>
+        </form>
 
         </ul>
     </body>
