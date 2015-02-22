@@ -18,11 +18,16 @@ def create_event(request):
 			pass
 		public_key = None
 		return redirect('event', public_key=public_key)
-		pass
+
 	else:
 		public_key = request.GET.get('public_key')
 		if public_key:
-			form = EventForm(initial={'public_key': public_key})
+			if Event.objects.filter(public_key=public_key).exists():
+				# Return home if event key already exists
+				return redirect('home')
+			else:
+
+				form = EventForm(initial={'public_key': public_key})
 		else:
 			form = EventForm()
 		context = {'public_key': public_key, 'create_event_form': form}
@@ -30,12 +35,11 @@ def create_event(request):
 
 # Event search redirect
 def event_redirect(request):
-	public_key = request.GET.get('public_key')
+	public_key = request.GET.get('public_key', None)
 	try:
 	    Event.objects.get(public_key=public_key)
 	except Event.DoesNotExist:
-		## Fix this to stay on home page
-		redirect('home')
+		return redirect('home')
 	return redirect('event', public_key=public_key)
 
 # Event display page
