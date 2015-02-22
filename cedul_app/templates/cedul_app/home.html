@@ -1,34 +1,77 @@
+
 <!DOCTYPE html>
 <html>
     <head>
+
+	<style type="text/css">
+        body {background-color: #2FB9A1;}
+        
+        .centered {
+            position: fixed;
+            top: 25px;
+            left: 50%;
+            margin-left: -100px;        }
+    
+    .centeredtext {
+        position: fixed;
+        top: 265px;
+        left: 50%;
+        margin-left: -70px;        }
+    
+        .button {
+            display: block;
+            height: 50px;
+            width: 90px;
+            background: #FFFFFF;
+            border: 2px;
+            border-radius: 25px;
+            border-color: #FFFFFF;
+            font-family: verdana;
+            font-size: 1em;
+            color: #F69666;
+            margin-left: 40%;
+            top: 350px;
+            position: absolute;
+            }
+    
+        .button2 {
+            margin-left: 50%;
+            position: absolute;
+            top: 350px;
+            display: block;
+            height: 50px;
+            width: 90px;
+            background: #FFFFFF;
+            border: 2px;
+            border-radius: 25px;
+            border-color: #FFFFFF;
+            font-family: verdana;
+            font-size: 1em;
+            color: #F69666;
+
+
+        }
+   
+    </style>
         <title>
-            {% block title %}
-            Cedul
-            {% endblock %}
+
         </title>
     </head>
     
-    {% block styles %}{% endblock %}
-    
-    <body style="margin: 0">
-        <h1 id="header"><a href="/">Cedul</a></h1>
-        
-        <h2>Welcome to the home page.</h2>
+    <body>
+                 <p class="centered"><img src="logo_200by200.png" alt="logo" height="200" width="200"></p>
+                 
+                <font face="verdana" color=#F69666 size="8" class="centeredtext"> Cedul </font>
+                
+                 <a href="http://www.google.com/">
+                     <button class="button" >Input Key</button>
+                 </a>
+                 
+                 
+                 <a href="http://www.google.com/">
+                     <button class="button2" >Create Cedul</button>
+                 </a>
 
-        <h3>Find an event</h3>
-        <form action="{% url 'event_redirect' %}" method='get'>
-		<label>Enter key: </label>
-		<input type='text' name='public_key'/>
-		{% csrf_token %}
-		<input type='submit' value='Find Event' />
-		</form>
 
-		<h3>Create an event</h3>
-        <form action="{% url 'create_event' %}" method='get'>
-		<label>Desired key: </label>
-		<input type='text' name='public_key'/>
-		{% csrf_token %}
-		<input type='submit' value='Create Event' />
-		</form>
     </body>
 </html>
