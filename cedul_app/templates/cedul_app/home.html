@@ -3,6 +3,7 @@
     <head>
         <title>
             {% block title %}
+            Cedul
             {% endblock %}
         </title>
     </head>
@@ -10,9 +11,22 @@
     {% block styles %}{% endblock %}
     
     <body style="margin: 0">
-        <h1 id="header">
-            <a href="/">Cedul</a>
-        </h1>
-        Welcome to the home page.
+        <h1 id="header"><a href="/">Cedul</a></h1>
+        
+        <h2>Welcome to the home page.</h2>
+
+        <h3>Find an event</h3>
+        <form action="{% url 'event_redirect' %}" method='get'>{% csrf_token %}
+		<label>Enter key: </label>
+		<input type='text' name='public_key'/>
+		<input type='submit' value='Submit' />
+		</form>
+
+		<h3>Create an event</h3>
+        <form action="{% url 'create_event' %}" method='get'>{% csrf_token %}
+		<label>Desired key: </label>
+		<input type='text' name='public_key'/>
+		<input type='submit' value='Submit' />
+		</form>
     </body>
 </html>

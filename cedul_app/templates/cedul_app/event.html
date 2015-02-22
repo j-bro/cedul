@@ -3,6 +3,7 @@
     <head>
         <title>
             {% block title %}
+            {{ event.event_name }}
             {% endblock %}
         </title>
     </head>
@@ -10,17 +11,20 @@
     {% block styles %}{% endblock %}
     
     <body style="margin: 0">
-        <h1 id="header">
-            <a href="/">Cedul</a>
-        </h1>
-        {{ e.event_name }}
+        <h1 id="header"><a href="/">Cedul</a><h1>
+
+        <h2>{{ event.event_name }}</h2>
         <br>
         
         Attendees
-        <br>
         <ul>
-        {% for a in attendees %}
-            <li>{{ a.first_name }} {{ a.last_name }}</li>
+        {% for a in event.attendee_set.all %}
+            <li>{{ a.name }}</li>
+                <ul>
+                {% for dt in a.availableslot_set.all %}
+                    <li>{{ dt }}</li>
+                {% endfor %}
+                </ul>
         {% endfor %}
         </ul>
     </body>
