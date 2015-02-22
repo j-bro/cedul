@@ -9,7 +9,7 @@
 
 {% block content %}
 
-{% include "cedul_app/menubar.html" with page_name="{{event.event_name}}" %}
+{% include "cedul_app/menubar.html" with page_title=event.event_name %}
 
     <div class="page-title">
         {{ event.event_name }}
